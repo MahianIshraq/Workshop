@@ -1,0 +1,133 @@
+﻿@inherits LayoutComponentBase
+
+@using Workshop.Services
+@inject WorkshopRootService WorkshopRoot;
+
+<div class="WorkshopMenuBar">
+    
+    <NavLink href="/" class="WorkshopNavButton" @onclick="WorkshopRoot.OnHomeButtonPressed">Smart Campus Connect</NavLink>
+
+    <div style="display: flex; margin-left: auto;">
+        
+        @if (WorkshopRoot.bIsLoggedIn)
+        {
+            @if (WorkshopRoot.bHasAdminPrivileges)
+            {
+                <NavLink href="/AdminPanel" class="WorkshopNavButton">Admin Panel</NavLink>
+                <div class="WorkshopNavFakeButton">|</div>
+            }
+            <NavLink href="/Dashboard" class="WorkshopNavButton">Dashboard</NavLink>
+            <div class="WorkshopNavFakeButton">|</div>
+            <NavLink href="/Marketplace" class="WorkshopNavButton">Marketplace</NavLink>
+            <div class="WorkshopNavFakeButton">|</div>
+            <NavLink href="/" class="WorkshopNavButton">Profile</NavLink>
+            <div class="WorkshopNavFakeButton">|</div>
+            <NavLink href="/" class="WorkshopNavButton" @onclick="WorkshopRoot.OnLogoutButtonPressed">Logout</NavLink>
+        }
+        else
+        {
+            <NavLink href="/" class="WorkshopNavButton" @onclick="WorkshopRoot.OnSignUpButtonPressed">Sign Up</NavLink>
+            <div class="WorkshopNavFakeButton">|</div>
+            <NavLink href="/" class="WorkshopNavButton" @onclick="WorkshopRoot.OnLoginButtonPressed">Login</NavLink>
+        }
+        
+    </div>
+    
+</div>
+
+@if (WorkshopRoot.bIsLoggedIn)
+{
+    <!-- Chat Button -->
+    <div style = "position: fixed; bottom: 10px; right: 10px;">
+                
+        <button class = "WorkshopButton" @onclick="WorkshopRoot.ToggleChatWindow">Chat</button>
+                
+    </div>
+    
+    <!-- Notification Button -->
+    @if (WorkshopRoot.bHasNotifications)
+    {
+        <div style = "position: fixed; top: 60px; right: 10px;">
+                
+            <button class = "WorkshopButton" @onclick="WorkshopRoot.ToggleNotificationWindow">!</button>
+                
+        </div>
+    }
+}
+
+<!-- Chat Window -->
+@if (WorkshopRoot.bShowChatWindow)
+{
+    <div style = "position: fixed; bottom: 66px; right: 10px; width: 500px; display: flex; flex-direction: column; gap: 10px">
+                    
+        <div style = "box-sizing: border-box; height: 400px; width: 100%; padding: 10px; border: 1px solid; overflow-y: auto; background-color: var(--BackgroundColor)">
+            @for (var i = 0; i < 10; i++)
+            {
+                <pre class = "WorkshopBodyText">Jack:  Hi.</pre>
+                <pre class = "WorkshopBodyText">Jill:  Bye.</pre>
+                <pre class = "WorkshopBodyText">Jack:  I'm sleeping.</pre>
+                <pre class = "WorkshopBodyText">Pan:   Ok.</pre>
+            }
+        </div>
+
+        <textarea rows = "2" class = "WorkshopTextBox" style="box-sizing: border-box; width: 100%; padding: 10px; resize: none;"></textarea>
+
+        <button class="WorkshopButton" style = "box-sizing: border-box; width: 100%;">Send</button>
+
+    </div>
+}
+
+<!-- Notification Window -->
+@if (WorkshopRoot.bShowNotificationWindow)
+{
+    <div style = "position: fixed; top: 112px; right: 10px; width: 500px; display: flex; flex-direction: column; gap: 10px">
+    
+        <div style = "box-sizing: border-box; height: 400px; width: 100%; padding: 10px; border: 1px solid; overflow-y: auto; background-color: var(--BackgroundColor)">
+            @for (var i = 0; i < 10; i++)
+            {
+                <pre class = "WorkshopBodyText">You have a homework due today 11:59 PM.</pre>
+                <pre class = "WorkshopBodyText">You received an F in CSCI 275.</pre>
+                <pre class = "WorkshopBodyText">You have sold an item in marketplace.</pre>
+                <pre class = "WorkshopBodyText">You have 3 unread private message(s).</pre>
+            }
+        </div>
+ 
+    
+    </div>
+}
+
+
+
+<!-- Signup Window -->
+@if (!WorkshopRoot.bIsLoggedIn && WorkshopRoot.bShowSignUpWindow)
+{
+    <div style = "position: fixed; top: 62px; right: 10px; width: 300px; display: flex; flex-direction: column; gap: 10px;">
+                
+        <input type="text" class="WorkshopTextBox" placeholder="Username" style = "box-sizing: border-box; padding: 10px; width: 100%;"/>
+        <input type="text" class="WorkshopTextBox" placeholder="Email" style = "box-sizing: border-box; width: 100%; padding: 10px;"/>
+        <input type="password" class="WorkshopTextBox" placeholder="Password" style = "box-sizing: border-box; width: 100%; padding: 10px;"/>
+
+        <button class = "WorkshopButton" style = "box-sizing: border-box; width: 100%;" @onclick="WorkshopRoot.OnLoginSucceeded"> Sign Up </button>
+            
+    </div>
+}
+
+<!-- Login Window -->
+@if (!WorkshopRoot.bIsLoggedIn && WorkshopRoot.bShowLoginWindow)
+{
+    <div style = "position: fixed; top: 62px; right: 10px; width: 300px;">
+                
+        <input type="text" class="WorkshopTextBox" placeholder="Username" style = "box-sizing: border-box; padding: 10px; width: 100%;"/>
+        <input type="password" class="WorkshopTextBox" placeholder="Password" style = "box-sizing: border-box; width: 100%; padding: 10px; margin-top: 10px;"/>
+
+        <button class = "WorkshopButton" style = "box-sizing: border-box; width: 100%; margin-top: 10px;" @onclick="WorkshopRoot.OnLoginSucceeded"> Login </button>
+            
+    </div>
+}
+
+
+
+
+
+
+@Body

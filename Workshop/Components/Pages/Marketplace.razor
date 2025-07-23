@@ -1,0 +1,68 @@
+﻿@page "/Marketplace"
+
+@using Workshop.Services
+@inject WorkshopRootService WorkshopRoot;
+
+<PageTitle>Marketplace</PageTitle>
+
+<div class="WorkshopVerticalContainerNoBorder">
+
+    <!-- Search Bar -->
+    <textarea rows="1" placeholder="Search..." class="WorkshopTextBox" style="box-sizing: border-box; width: 100%; padding: 10px; resize: none;"></textarea>
+
+    <!-- Filter -->
+    <select class="WorkshopTextBox" style="box-sizing: border-box; width: 100%; padding: 10px;">
+        <option value="">-- Filter by Type --</option>
+        <option value="electronics">Electronics</option>
+        <option value="fruit">Food</option>
+        <option value="furniture">Furniture</option>
+        <option value="textbook">Textbook</option>
+    </select>
+
+    <!-- Listings -->
+    <div class = "WorkshopVerticalContainer" style="border-color: var(--Light1);">
+        <div class="WorkshopTextBox" style="padding: 10px;">Title: Apple</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Price: $1</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Description: Fresh red apple from my farm. Cash only.</div>
+    </div>
+
+    <div class = "WorkshopVerticalContainer" style="border-color: var(--Light1);">
+        <div class="WorkshopTextBox" style="padding: 10px;">Title: Chair</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Price: $15</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Description: Collapsible plastic chair in good condition.</div>
+    </div>
+
+    <div class = "WorkshopVerticalContainer" style="border-color: var(--Light1);">
+        <div class="WorkshopTextBox" style="padding: 10px;">Title: Headphones</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Price: $25</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Description: Wireless noise-cancelling generic headphones.</div>
+    </div>
+    
+    <div class = "WorkshopVerticalContainer" style="border-color: var(--Light1);">
+        <div class="WorkshopTextBox" style="padding: 10px;">Title: CSCI 275 Textbook</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Price: $25</div>
+        <div class="WorkshopTextBox" style="padding: 10px;">Description: CSCI 275 required text, used for 1 semester, like-new.</div>
+    </div>
+
+</div>
+
+
+
+<div style = "position: fixed; bottom: 10px; left: 10px;">
+                
+    <button class = "WorkshopButton" @onclick="WorkshopRoot.ToggleCreateListingWindow">New Listing</button>
+                
+</div>
+
+@if (WorkshopRoot.bShowCreateListingWindow)
+{
+    <div style = "position: fixed; bottom: 66px; left: 10px; width: 500px; display: flex; flex-direction: column; gap: 10px">
+                    
+        <textarea rows = "1" placeholder="Title" class = "WorkshopTextBox" style="box-sizing: border-box; width: 100%; padding: 10px; resize: none;"></textarea>
+        <textarea rows = "1" placeholder="Price" class = "WorkshopTextBox" style="box-sizing: border-box; width: 100%; padding: 10px; resize: none;"></textarea>
+        <textarea rows = "5" placeholder="Description" class = "WorkshopTextBox" style="box-sizing: border-box; width: 100%; padding: 10px; resize: none;"></textarea>
+
+        <button class="WorkshopButton" style = "box-sizing: border-box; width: 100%;">Create</button>
+
+    </div>
+}

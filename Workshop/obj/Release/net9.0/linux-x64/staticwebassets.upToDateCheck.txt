@@ -1,0 +1,2 @@
+wwwroot\app.css
+D:\Core\Local Projects\Blazor\Workshop\Workshop\wwwroot\app.css

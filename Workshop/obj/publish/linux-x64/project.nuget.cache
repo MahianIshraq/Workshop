@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hqSuXHGSrTg=",
+  "success": true,
+  "projectFilePath": "D:\\Core\\Local Projects\\Blazor\\Workshop\\Workshop\\Workshop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nether\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\9.0.7\\microsoft.netcore.app.host.linux-x64.9.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

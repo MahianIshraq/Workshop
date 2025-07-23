@@ -1,0 +1,7 @@
+D:\Core\Local Projects\Blazor\Workshop\Workshop\obj\Release\net9.0\linux-x64\PubTmp\Out\Workshop
+D:\Core\Local Projects\Blazor\Workshop\Workshop\obj\Release\net9.0\linux-x64\PubTmp\Out\appsettings.Development.json
+D:\Core\Local Projects\Blazor\Workshop\Workshop\obj\Release\net9.0\linux-x64\PubTmp\Out\appsettings.json
+D:\Core\Local Projects\Blazor\Workshop\Workshop\obj\Release\net9.0\linux-x64\PubTmp\Out\Workshop.dll
+D:\Core\Local Projects\Blazor\Workshop\Workshop\obj\Release\net9.0\linux-x64\PubTmp\Out\Workshop.deps.json
+D:\Core\Local Projects\Blazor\Workshop\Workshop\obj\Release\net9.0\linux-x64\PubTmp\Out\Workshop.runtimeconfig.json
+D:\Core\Local Projects\Blazor\Workshop\Workshop\obj\Release\net9.0\linux-x64\PubTmp\Out\Workshop.pdb
